@@ -8,35 +8,60 @@
 </head>
 <body>
   <header>
-    <h1>Apphub</h1>
-    <button id="add-app">Add app</button>
+    <h1>Welcome, <span id="user-name"></span></h1>
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search apps" hidden>
+      <button id="search-toggle" class="icon-btn" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+      </button>
+      <select aria-label="Filter">
+        <option>All apps</option>
+      </select>
+      <button id="add-app" class="primary">+ Create Solution</button>
+    </div>
   </header>
 
   <main id="grid" class="grid"></main>
   <p id="empty" class="empty" hidden>No apps yet.</p>
 
   <dialog id="app-dialog">
-    <form id="app-form" method="dialog" class="panel">
-      <h2 id="dialog-title">Add app</h2>
+    <form id="app-form" method="dialog">
+      <h2 id="dialog-title">Create Solution</h2>
       <input id="app-name" placeholder="App name" required>
       <input id="app-url" type="url" placeholder="https://example.com" required>
-      <label>Badge color <input id="app-color" type="color" value="#4f46e5"></label>
-      <div class="actions">
+      <label>Badge color <input id="app-color" type="color" value="#1a73e8"></label>
+      <div class="form-actions">
         <button type="button" id="cancel" class="secondary">Cancel</button>
-        <button type="submit">Save</button>
+        <button type="submit" class="primary">Save</button>
       </div>
     </form>
   </dialog>
 
   <template id="card-tpl">
     <article class="card">
-      <div class="badge"></div>
-      <h3></h3>
-      <p class="date"></p>
-      <div class="actions">
-        <button class="open">Open</button>
-        <button class="edit secondary">Edit</button>
-        <button class="delete danger">Delete</button>
+      <div class="card-top">
+        <div class="badge"></div>
+        <div>
+          <h3></h3>
+          <p class="date"></p>
+        </div>
+      </div>
+      <div class="card-bottom">
+        <span class="type">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Application
+        </span>
+        <details class="more">
+          <summary>More ↓</summary>
+          <div class="menu">
+            <button class="open">Open</button>
+            <button class="delete">Delete</button>
+          </div>
+        </details>
+        <button class="edit">
+          <svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z"/></svg>
+          Edit
+        </button>
       </div>
     </article>
   </template>
