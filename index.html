@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apphub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Apphub</h1>
+    <button id="add-app">Add app</button>
+  </header>
+
+  <main id="grid" class="grid"></main>
+  <p id="empty" class="empty" hidden>No apps yet.</p>
+
+  <dialog id="app-dialog">
+    <form id="app-form" method="dialog" class="panel">
+      <h2 id="dialog-title">Add app</h2>
+      <input id="app-name" placeholder="App name" required>
+      <input id="app-url" type="url" placeholder="https://example.com" required>
+      <label>Badge color <input id="app-color" type="color" value="#4f46e5"></label>
+      <div class="actions">
+        <button type="button" id="cancel" class="secondary">Cancel</button>
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <template id="card-tpl">
+    <article class="card">
+      <div class="badge"></div>
+      <h3></h3>
+      <p class="date"></p>
+      <div class="actions">
+        <button class="open">Open</button>
+        <button class="edit secondary">Edit</button>
+        <button class="delete danger">Delete</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
